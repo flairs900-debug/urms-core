@@ -1,9 +1,8 @@
-use super::relation::Relation;
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Clone)]
-
+#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct Edge {
-    pub from: u64,
-    pub to: u64,
-    pub relation: Relation,
+    pub from: usize,
+    pub to: usize,
+    pub relation: String,
 }

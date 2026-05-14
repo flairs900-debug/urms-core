@@ -1,14 +1,7 @@
-#[derive(Clone, Debug)]
-pub struct Entity {
-    pub name: String,
-    pub entity_type: String,
-}
+use serde::{Serialize, Deserialize};
 
-impl Entity {
-    pub fn new(name: &str, entity_type: &str) -> Self {
-        Self {
-            name: name.to_string(),
-            entity_type: entity_type.to_string(),
-        }
-    }
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct OntologyEntity {
+    pub name: String,
+    pub kind: String,
 }

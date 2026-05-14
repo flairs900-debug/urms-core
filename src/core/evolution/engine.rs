@@ -1,7 +1,6 @@
 use crate::core::graph::graph::Graph;
 use crate::core::graph::node::Node;
 use crate::core::graph::edge::Edge;
-use crate::core::graph::relation::Relation;
 
 pub struct EvolutionEngine;
 
@@ -11,7 +10,7 @@ impl EvolutionEngine {
 
         println!("Evolution engine active");
 
-        let mut next_id = graph.nodes.len() as u64 + 1;
+        let mut next_id: usize = graph.nodes.len() + 1;
 
         let adaptive_node = Node {
             id: next_id,
@@ -23,10 +22,10 @@ impl EvolutionEngine {
         graph.edges.push(
             Edge {
                 from: 1,
-                to: next_id,
-                relation: Relation::EvolvesTo,
-            }
-        );
+                to: next_id as usize,
+                relation: "EvolvesTo".to_string(),
+            
+			});
 
         println!("Adaptive layer created");
 
@@ -42,10 +41,10 @@ impl EvolutionEngine {
         graph.edges.push(
             Edge {
                 from: 1,
-                to: next_id,
-                relation: Relation::EvolvesTo,
-            }
-        );
+                to: next_id as usize,
+                relation: "EvolvesTo".to_string(),
+            
+			});
 
         println!("Cognitive mutation created");
 

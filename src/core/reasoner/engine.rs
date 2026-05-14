@@ -3,23 +3,21 @@ use crate::core::ontology::store::OntologyStore;
 pub struct ReasonerEngine;
 
 impl ReasonerEngine {
-    pub fn run(ontology: &OntologyStore) {
+    pub fn infer(ontology: &OntologyStore) {
+        println!("Reasoning started");
+
         for entity in &ontology.entities {
-            match entity.entity_type.as_str() {
-                "Concept" => {
-                    println!("Concept: {}", entity.name);
+            match entity.kind.as_str() {
+                "concept" => {
+                    println!("Concept detected: {}", entity.name);
                 }
 
-                "Rule" => {
-                    println!("Rule: {}", entity.name);
-                }
-
-                "Memory" => {
-                    println!("Memory: {}", entity.name);
+                "memory" => {
+                    println!("Memory node: {}", entity.name);
                 }
 
                 _ => {
-                    println!("Unknown: {}", entity.name);
+                    println!("Unknown entity: {}", entity.name);
                 }
             }
         }
