@@ -1,16 +1,17 @@
 # URMS Core
+## Features
 
-Adaptive cognitive runtime system written in Rust.
+- Adaptive runtime loop
+- Symbolic rewrite engine
+- Ontology persistence
+- Graph-based cognition
+- Meta evolution subsystem
+- Runtime validation
 
-## Modules
+## Roadmap
 
-- Graph engine
-- Rewrite engine
-- Runtime scheduler
-- Ontology store
-- Reasoner
-- Validator
-
-## Run
-
-cargo run
+- [ ] REPL shell
+- [ ] Async runtime
+- [ ] LLM integration
+- [ ] Distributed graph memory
+- [ ] Cognitive planner
