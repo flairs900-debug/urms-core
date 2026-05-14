@@ -1,63 +1,23 @@
 use crate::core::graph::graph::Graph;
 use crate::core::graph::node::Node;
-use crate::core::graph::edge::Edge;
-use crate::core::graph::relation::Relation;
 
-pub struct EvolutionEngine;
+pub struct MetaEvolution;
 
-impl EvolutionEngine {
+impl MetaEvolution {
 
-    pub fn evolve(graph: &mut Graph) {
+    pub fn mutate(graph: &mut Graph) {
 
-        println!("Evolution engine active");
+        println!("Meta evolution started");
 
-        let mut next_id = graph.nodes.len() as u64 + 1;
+        let next_id: usize = graph.nodes.len() + 1;
 
-        let mut should_expand = false;
+        let node = Node {
+            id: next_id,
+            name: "MetaAdaptiveNode".to_string(),
+        };
 
-        for node in &graph.nodes {
+        graph.nodes.push(node);
 
-            if node.name == "AdaptiveExecutionEngine" {
-
-                should_expand = true;
-            }
-        }
-
-        if should_expand {
-
-            println!(
-                "AdaptiveExecutionEngine detected"
-            );
-
-            graph.add_node(
-                Node {
-
-                    id: next_id,
-
-                    name: "CognitiveLayer".to_string(),
-
-                }
-            );
-
-            graph.add_edge(
-                Edge {
-
-                    from: 3,
-
-                    to: next_id,
-
-                    relation: Relation::EvolvesTo,
-
-                }
-            );
-
-            println!(
-                "New node created => CognitiveLayer"
-            );
-
-            next_id += 1;
-        }
-
-        println!("Evolution complete");
+        println!("Meta mutation applied");
     }
 }

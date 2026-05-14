@@ -1,35 +1,88 @@
-use std::fs::File;
-
-use std::io::Write;
+use std::fs;
 
 use crate::core::graph::graph::Graph;
+use crate::core::ontology::store::OntologyStore;
 
-pub struct PersistenceEngine;
+pub struct Persistence;
 
-impl PersistenceEngine {
+impl Persistence {
 
-    pub fn save(graph: &Graph) {
+    pub fn save_graph(graph: &Graph) {
 
-        println!("Persistence engine active");
+        let json =
+            serde_json::to_string_pretty(graph)
+                .unwrap();
 
-        let mut file = File::create(
-            "memory_dump.txt"
+        fs::write(
+            "memory_graph.json",
+            json
         )
-        .expect("Cannot create file");
+        .unwrap();
 
-        for node in &graph.nodes {
+        println!("Graph saved");
+    }
 
-            let line = format!(
-                "{}\n",
-                node.name
+    pub fn load_graph() -> Option<Graph> {
+
+        let content =
+            fs::read_to_string("memory_graph.json");
+
+        match content {
+
+            Ok(data) => {
+
+                let graph: Graph =
+                    serde_json::from_str(&data)
+                        .unwrap();
+
+                println!("Graph loaded");
+
+                Some(graph)
+            }
+
+            Err(_) => None,
+        }
+    }
+
+    pub fn save_ontology(
+        ontology: &OntologyStore
+    ) {
+
+        let json =
+            serde_json::to_string_pretty(ontology)
+                .unwrap();
+
+        fs::write(
+            "memory_ontology.json",
+            json
+        )
+        .unwrap();
+
+        println!("Ontology saved");
+    }
+
+    pub fn load_ontology()
+        -> Option<OntologyStore> {
+
+        let content =
+            fs::read_to_string(
+                "memory_ontology.json"
             );
 
-            file.write_all(
-                line.as_bytes()
-            )
-            .expect("Write failed");
-        }
+        match content {
 
-        println!("Graph saved to memory_dump.txt");
+            Ok(data) => {
+
+                let ontology: OntologyStore =
+                    serde_json::from_str(&data)
+                        .unwrap();
+
+                println!("Ontology loaded");
+
+                Some(ontology)
+            }
+
+            Err(_) => None,
+        }
     }
 }

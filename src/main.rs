@@ -7,53 +7,121 @@ use core::rewrite::engine::RewriteEngine;
 use core::rewrite::rule::RewriteRule;
 
 use core::runtime::engine::RuntimeEngine;
+use core::runtime::r#loop::RuntimeLoop;
+
 use core::query::engine::QueryEngine;
 
 use core::ontology::store::OntologyStore;
-use core::ontology::entity::Entity;
+
+use core::memory::persistence::Persistence;
 
 fn main() {
+
     println!("URMS CORE START");
 
     RuntimeEngine::run();
 
-    let mut graph = Graph::new();
+    // =========================
+    // LOAD GRAPH
+    // =========================
 
-    graph.add_node(Node {
-        id: 1,
-        name: "ExecutionEngine".to_string(),
-    });
+    let mut graph =
+        Persistence::load_graph()
+            .unwrap_or(Graph::new());
 
-    graph.add_node(Node {
-        id: 2,
-        name: "MemoryNode".to_string(),
-    });
+    // =========================
+    // DEFAULT GRAPH
+    // =========================
+
+    if graph.nodes.is_empty() {
+
+        graph.add_node(Node {
+            id: 1,
+            name: "ExecutionEngine".to_string(),
+        });
+    }
+
+    // =========================
+    // REWRITE ENGINE
+    // =========================
+
+    let rule = RewriteRule {
+        from: "ExecutionEngine".to_string(),
+        to: "AdaptiveExecutionEngine".to_string(),
+    };
+
+    let mut rewrite_engine = RewriteEngine::new();
+
+rewrite_engine.add_rule(
+    RewriteRule {
+        from: "ExecutionEngine".to_string(),
+        to: "AdaptiveExecutionEngine".to_string(),
+    }
+);
+
+rewrite_engine.execute(&mut graph);
+
+    // =========================
+    // QUERY ENGINE
+    // =========================
 
     QueryEngine::find_node(
         &graph,
-        "ExecutionEngine",
+        "AdaptiveExecutionEngine"
     );
 
-    RewriteEngine::rewrite(
-        &mut graph,
-        &RewriteRule {
-            from: "ExecutionEngine".to_string(),
-            to: "AdaptiveExecutionEngine".to_string(),
-        },
-    );
+    // =========================
+    // ONTOLOGY
+    // =========================
 
-    QueryEngine::find_node(
-        &graph,
-        "AdaptiveExecutionEngine",
-    );
+    let mut ontology =
+        Persistence::load_ontology()
+            .unwrap_or(OntologyStore::new());
 
-    let mut ontology = OntologyStore::new();
+    if ontology.entities.is_empty() {
 
-    ontology.add_entity(
-        Entity::new(
+        ontology.add_entity(
             "Cognition",
-            "Concept",
-        )
+            "concept"
+        );
+
+        ontology.add_entity(
+            "LongTermMemory",
+            "memory"
+        );
+
+        ontology.add_entity(
+            "RuntimeKernel",
+            "runtime"
+        );
+    }
+
+    println!("=== ONTOLOGY ===");
+
+    for entity in &ontology.entities {
+
+        println!(
+            "{} ({})",
+            entity.name,
+            entity.kind
+        );
+    }
+
+    // =========================
+    // SAVE
+    // =========================
+
+    graph.save("memory_dump.json");
+
+    ontology.save("ontology_dump.json");
+
+    // =========================
+    // RUNTIME LOOP
+    // =========================
+
+    RuntimeLoop::start(
+        &mut graph,
+        &mut ontology
     );
 
     println!("SYSTEM OK");

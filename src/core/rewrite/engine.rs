@@ -6,26 +6,39 @@ pub struct RewriteEngine {
 }
 
 impl RewriteEngine {
+
     pub fn new() -> Self {
         Self {
             rules: Vec::new(),
         }
     }
 
-    pub fn add_rule(&mut self, rule: RewriteRule) {
+    pub fn add_rule(
+        &mut self,
+        rule: RewriteRule,
+    ) {
         self.rules.push(rule);
     }
 
-    pub fn execute(&self, graph: &mut Graph) {
-        for rule in &self.rules {
-            Self::rewrite(graph, rule);
-        }
-    }
+    pub fn execute(
+        &self,
+        graph: &mut Graph,
+    ) {
 
-    pub fn rewrite(graph: &mut Graph, rule: &RewriteRule) {
-        for node in &mut graph.nodes {
-            if node.name == rule.from {
-                node.name = rule.to.clone();
+        for rule in &self.rules {
+
+            for node in &mut graph.nodes {
+
+                if node.name == rule.from {
+
+                    println!(
+                        "Rewrite applied: {} -> {}",
+                        rule.from,
+                        rule.to
+                    );
+
+                    node.name = rule.to.clone();
+                }
             }
         }
     }
