@@ -2,9 +2,15 @@
 
 Adaptive cognitive runtime system written in Rust.
 
-## Features
+## Modules
+
 - Graph engine
 - Rewrite engine
-- Query engine
+- Runtime scheduler
 - Ontology store
-- Runtime execution core
+- Reasoner
+- Validator
+
+## Run
+
+cargo run
