@@ -5,9 +5,10 @@ pub struct RewriteRule {
 }
 
 impl RewriteRule {
-
-    pub fn new(from: &str, to: &str) -> Self {
-
+    pub fn new(
+        from: &str,
+        to: &str,
+    ) -> Self {
         Self {
             from: from.to_string(),
             to: to.to_string(),

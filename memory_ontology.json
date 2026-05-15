@@ -1,0 +1,12 @@
+{
+  "entities": [
+    {
+      "name": "Cognition",
+      "kind": "Concept"
+    },
+    {
+      "name": "AdaptiveExecutionEngine",
+      "kind": "RuntimeNode"
+    }
+  ]
+}

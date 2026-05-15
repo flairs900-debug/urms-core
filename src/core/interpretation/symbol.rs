@@ -1,7 +1,6 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Entity {
-    pub name: String,
-    pub kind: String,
+pub struct SemanticSymbol {
+    pub value: String,
 }

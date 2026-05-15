@@ -1,45 +1,36 @@
-use crate::core::graph::graph::Graph;
-use crate::core::rewrite::rule::RewriteRule;
+use crate::core::{
+    graph::graph::Graph,
+    rewrite::rule::RewriteRule,
+};
 
-pub struct RewriteEngine {
-    rules: Vec<RewriteRule>,
-}
+pub struct RewriteEngine;
 
 impl RewriteEngine {
-
-    pub fn new() -> Self {
-        Self {
-            rules: Vec::new(),
-        }
-    }
-
-    pub fn add_rule(
-        &mut self,
-        rule: RewriteRule,
-    ) {
-        self.rules.push(rule);
-    }
-
-    pub fn execute(
-        &self,
+    pub fn apply(
         graph: &mut Graph,
+        rules: &Vec<RewriteRule>,
     ) {
+        println!(
+            "rewrite engine started"
+        );
 
-        for rule in &self.rules {
-
+        for rule in rules {
             for node in &mut graph.nodes {
-
                 if node.name == rule.from {
-
                     println!(
-                        "Rewrite applied: {} -> {}",
-                        rule.from,
+                        "rewrite => {} -> {}",
+                        node.name,
                         rule.to
                     );
 
-                    node.name = rule.to.clone();
+                    node.name =
+                        rule.to.clone();
                 }
             }
         }
+
+        println!(
+            "rewrite engine finished"
+        );
     }
 }

@@ -1,28 +1,65 @@
-use crate::core::graph::graph::Graph;
-
-use crate::core::memory::persistence::Persistence;
-
-use crate::core::ontology::store::OntologyStore;
-
-use crate::core::meta::evolution::MetaEvolution;
+use crate::core::{
+    evolution::{
+        engine::EvolutionEngine,
+        history::EvolutionHistory,
+    },
+    graph::graph::Graph,
+    interpretation::engine::InterpretationEngine,
+    memory::persistence::Persistence,
+    observation::engine::ObservationEngine,
+    ontology::store::OntologyStore,
+    reflection::analyzer::ReflectionAnalyzer,
+};
 
 pub struct RuntimeLoop;
 
 impl RuntimeLoop {
-
-    pub fn start(
+    pub fn run(
         graph: &mut Graph,
-        ontology: &mut OntologyStore,
+        ontology: &OntologyStore,
     ) {
+        println!(
+            "runtime loop started"
+        );
 
-        println!("Runtime loop started");
+        let observation =
+            ObservationEngine::observe(
+                "system overload",
+            );
 
-        MetaEvolution::mutate(graph);
+        let interpreted =
+            InterpretationEngine::interpret(
+                &observation,
+            );
 
-        Persistence::save_graph(graph);
+        println!(
+            "interpreted => {}",
+            interpreted.value
+        );
 
-        Persistence::save_ontology(ontology);
+        let mut history =
+            EvolutionHistory::new();
 
-        println!("SYSTEM OK");
+        EvolutionEngine::evolve(
+            graph,
+            &mut history,
+        );
+
+        ReflectionAnalyzer::analyze(
+            graph,
+        );
+
+        Persistence::save_graph(
+    graph
+);
+
+        println!(
+            "ontology entities => {}",
+            ontology.entities.len()
+        );
+
+        println!(
+            "runtime loop finished"
+        );
     }
 }

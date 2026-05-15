@@ -1,40 +1,24 @@
-use serde::{Serialize, Deserialize};
+use std::collections::HashMap;
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct OntologyEntity {
-    pub name: String,
-    pub kind: String,
-}
+use serde::{Deserialize, Serialize};
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct OntologyStore {
-    pub entities: Vec<OntologyEntity>,
+    pub entities: HashMap<String, String>,
 }
 
 impl OntologyStore {
-
     pub fn new() -> Self {
         Self {
-            entities: Vec::new(),
+            entities: HashMap::new(),
         }
     }
 
-    pub fn add_entity(&mut self, name: &str, kind: &str) {
-        self.entities.push(
-            OntologyEntity {
-                name: name.to_string(),
-                kind: kind.to_string(),
-            }
-        );
+    pub fn insert(&mut self, name: String, kind: String) {
+        self.entities.insert(name, kind);
     }
 
-    pub fn save(&self, path: &str) {
-
-        let json =
-            serde_json::to_string_pretty(self)
-                .expect("Failed serialize ontology");
-
-        std::fs::write(path, json)
-            .expect("Failed save ontology");
+    pub fn get_kind(&self, name: &str) -> Option<&String> {
+        self.entities.get(name)
     }
 }

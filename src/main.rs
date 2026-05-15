@@ -1,128 +1,79 @@
 mod core;
 
-use core::graph::graph::Graph;
-use core::graph::node::Node;
+use crate::core::{
+    graph::graph::Graph,
 
-use core::rewrite::engine::RewriteEngine;
-use core::rewrite::rule::RewriteRule;
+    runtime::event_loop::RuntimeLoop,
 
-use core::runtime::engine::RuntimeEngine;
-use core::runtime::r#loop::RuntimeLoop;
+    memory::persistence::Persistence,
 
-use core::query::engine::QueryEngine;
-
-use core::ontology::store::OntologyStore;
-
-use core::memory::persistence::Persistence;
+    query::engine::QueryEngine,
+};
 
 fn main() {
 
-    println!("URMS CORE START");
+    println!("URMS Core starting...");
 
-    RuntimeEngine::run();
-
-    // =========================
-    // LOAD GRAPH
-    // =========================
+    /*
+        graph
+    */
 
     let mut graph =
-        Persistence::load_graph()
-            .unwrap_or(Graph::new());
+        Graph::new();
 
-    // =========================
-    // DEFAULT GRAPH
-    // =========================
+    /*
+        load graph
+    */
+
+    Persistence::load_graph(
+        &mut graph
+    );
+
+    /*
+        bootstrap
+    */
 
     if graph.nodes.is_empty() {
 
-        graph.add_node(Node {
-            id: 1,
-            name: "ExecutionEngine".to_string(),
-        });
+        graph.add_node(
+            "ExecutionEngine"
+        );
+
+        graph.add_node(
+            "SemanticEngine"
+        );
+
+        graph.add_edge(
+            1,
+            2,
+        );
     }
 
-    // =========================
-    // REWRITE ENGINE
-    // =========================
+    /*
+        runtime
+    */
 
-    let rule = RewriteRule {
-        from: "ExecutionEngine".to_string(),
-        to: "AdaptiveExecutionEngine".to_string(),
-    };
+    RuntimeLoop::run(
+        &mut graph
+    );
 
-    let mut rewrite_engine = RewriteEngine::new();
+    /*
+        query
+    */
 
-rewrite_engine.add_rule(
-    RewriteRule {
-        from: "ExecutionEngine".to_string(),
-        to: "AdaptiveExecutionEngine".to_string(),
-    }
-);
+    QueryEngine::show_graph(
+        &graph
+    );
 
-rewrite_engine.execute(&mut graph);
-
-    // =========================
-    // QUERY ENGINE
-    // =========================
-
-    QueryEngine::find_node(
+    QueryEngine::ask_node(
         &graph,
-        "AdaptiveExecutionEngine"
+        "ExecutionEngine"
     );
 
-    // =========================
-    // ONTOLOGY
-    // =========================
-
-    let mut ontology =
-        Persistence::load_ontology()
-            .unwrap_or(OntologyStore::new());
-
-    if ontology.entities.is_empty() {
-
-        ontology.add_entity(
-            "Cognition",
-            "concept"
-        );
-
-        ontology.add_entity(
-            "LongTermMemory",
-            "memory"
-        );
-
-        ontology.add_entity(
-            "RuntimeKernel",
-            "runtime"
-        );
-    }
-
-    println!("=== ONTOLOGY ===");
-
-    for entity in &ontology.entities {
-
-        println!(
-            "{} ({})",
-            entity.name,
-            entity.kind
-        );
-    }
-
-    // =========================
-    // SAVE
-    // =========================
-
-    graph.save("memory_dump.json");
-
-    ontology.save("ontology_dump.json");
-
-    // =========================
-    // RUNTIME LOOP
-    // =========================
-
-    RuntimeLoop::start(
-        &mut graph,
-        &mut ontology
+    QueryEngine::ask_relations(
+        &graph,
+        1
     );
 
-    println!("SYSTEM OK");
+    println!("URMS Core finished.");
 }
