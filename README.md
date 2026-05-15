@@ -1,112 +1,97 @@
-# URMS Core
+<div align="center">
 
-<p align="center">
-  <h1 align="center">Universal Recursive Memory System</h1>
-  <p align="center">
-    Experimental Symbolic Cognitive Runtime Architecture Written in Rust
-  </p>
+# 🧠 URMS Core
+
+### Universal Recursive Memory System
+
+<h3>
+Experimental Cognitive Runtime Architecture Written in Rust
+</h3>
+
+<p>
+<img src="https://img.shields.io/badge/language-rust-orange?style=for-the-badge">
+<img src="https://img.shields.io/badge/status-research-blue?style=for-the-badge">
+<img src="https://img.shields.io/badge/runtime-symbolic-purple?style=for-the-badge">
+<img src="https://img.shields.io/badge/memory-recursive-teal?style=for-the-badge">
+<img src="https://img.shields.io/badge/architecture-graph_based-darkred?style=for-the-badge">
+<img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge">
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/language-rust-orange.svg">
-  <img src="https://img.shields.io/badge/status-research-blue.svg">
-  <img src="https://img.shields.io/badge/runtime-symbolic-purple.svg">
-  <img src="https://img.shields.io/badge/architecture-graph_based-darkred.svg">
-  <img src="https://img.shields.io/badge/memory-recursive-teal.svg">
-  <img src="https://img.shields.io/badge/license-MIT-green.svg">
-</p>
+---
+
+> Experimental symbolic runtime exploring recursive memory, graph cognition and ontology-driven execution.
+
+</div>
 
 ---
 
-# Overview
+# 🌌 Overview
 
-URMS (Universal Recursive Memory System) is an experimental symbolic runtime architecture focused on recursive memory, ontology-driven execution, graph cognition and adaptive semantic evolution.
+URMS (Universal Recursive Memory System) is an experimental symbolic runtime architecture focused on:
 
-The project investigates whether cognition-like behavior can emerge from evolving symbolic structures instead of static procedural execution.
+- recursive memory systems
+- graph cognition
+- ontology-driven execution
+- reflective runtime analysis
+- adaptive symbolic mutation
+- semantic runtime evolution
 
-Unlike conventional runtimes that operate through fixed instruction flows, URMS models runtime state as a dynamic semantic environment capable of:
+Unlike traditional runtimes that operate through static procedural logic, URMS models runtime state as a dynamic semantic environment capable of transformation, introspection and structural adaptation.
 
-- recursive introspection
-- graph mutation
-- symbolic transformation
-- ontology evolution
-- adaptive execution
-- structural reflection
-
-URMS explores runtime systems where execution, memory and interpretation evolve together recursively.
+URMS explores whether cognition-like behavior can emerge from evolving symbolic structures operating on adaptive graph memory.
 
 ---
 
-# Core Idea
+# 🚀 Vision
 
-Traditional runtimes execute instructions.
-
-URMS experiments with runtimes that evolve symbolic structures.
-
-Instead of treating memory as passive storage, URMS treats runtime memory as an active semantic system capable of:
-
-- transformation
-- reinterpretation
-- recursive mutation
-- graph restructuring
-- symbolic adaptation
-- semantic evolution
-
-Execution becomes a property of semantic relationships rather than only procedural control flow.
-
----
-
-# Vision
-
-Modern runtime systems are deterministic and static by design.
+Modern runtimes execute predefined instructions.
 
 URMS explores architectures where:
 
 - memory evolves dynamically
-- symbolic entities mutate recursively
+- symbolic structures mutate recursively
 - execution adapts to semantic context
-- graph structures become cognitive memory
-- ontologies drive interpretation
-- runtimes analyze themselves recursively
+- runtime state becomes self-interpretable
+- graph structures act as cognitive memory
+- ontology layers organize semantic meaning
 
-The long-term goal is to experiment with autonomous symbolic runtimes capable of semantic self-organization and recursive adaptation.
+The long-term goal is to experiment with autonomous symbolic runtimes capable of recursive adaptation and semantic self-reorganization.
 
 ---
 
-# Research Questions
+# 🔬 Research Questions
 
 URMS investigates several experimental questions:
 
 - Can symbolic cognition emerge from recursive graph mutation?
-- Can memory structures evolve semantically?
+- Can semantic memory evolve dynamically?
 - Can ontology systems drive runtime behavior?
-- Can reflective runtimes reorganize themselves adaptively?
-- Can symbolic systems maintain persistent semantic state?
-- Can graph cognition replace static execution models?
-- Can recursive memory architectures generate adaptive behavior?
+- Can reflective runtimes reorganize themselves?
+- Can graph cognition replace static execution flows?
+- Can recursive symbolic systems maintain persistent semantic state?
 
 ---
 
-# Why Rust
+# ⚙️ Why Rust
 
 URMS uses Rust to experiment with:
 
 - memory-safe runtime systems
-- high-performance graph processing
 - deterministic symbolic execution
-- recursive subsystem orchestration
+- high-performance graph processing
+- modular subsystem isolation
 - low-level runtime control
-- modular architecture isolation
+- scalable architecture design
 
 Rust provides strong guarantees for building complex recursive runtime architectures safely and efficiently.
 
 ---
 
-# Architectural Principles
+# 🧩 Core Principles
 
-## Recursive Memory
+## 🔁 Recursive Memory
 
-Memory is not treated as static storage.
+Memory is not treated as passive storage.
 
 Memory structures may:
 
@@ -116,93 +101,87 @@ Memory structures may:
 - recursively reference themselves
 - participate in runtime adaptation
 
-The runtime continuously transforms its internal symbolic state.
-
 ---
 
-## Symbolic Runtime
+## 🧠 Symbolic Runtime
 
-URMS represents execution symbolically rather than procedurally.
+URMS represents execution through symbolic entities and semantic graph structures instead of purely procedural control flow.
 
-Symbols become active runtime entities capable of:
+Symbols become active runtime components capable of:
 
-- semantic transformation
 - interpretation
+- transformation
 - mutation
-- relationship evolution
-- adaptive restructuring
+- semantic evolution
+- structural adaptation
 
 ---
 
-## Graph Cognition
+## 🌐 Graph Cognition
 
-Runtime cognition is represented through mutable graph structures.
+Runtime cognition is modeled through mutable graph structures.
 
 Graphs encode:
 
 - symbolic entities
 - semantic relations
-- runtime dependencies
-- conceptual mappings
 - execution transitions
+- conceptual mappings
+- runtime dependencies
 - reflective states
 
 ---
 
-## Ontology-Driven Execution
+## 📚 Ontology-Driven Execution
 
 Ontology acts as the semantic infrastructure of the runtime.
 
 The ontology layer enables:
 
-- symbolic categorization
+- symbolic classification
 - semantic interpretation
 - entity mapping
-- runtime classification
 - structural reasoning
-- adaptive semantic organization
+- runtime categorization
 
 ---
 
-## Reflective Execution
+## 🪞 Reflective Execution
 
-The runtime can inspect and analyze its own internal state recursively.
+The runtime can recursively analyze and inspect its own internal structures.
 
 Reflection enables:
 
-- introspection
-- runtime diagnostics
-- graph analysis
+- runtime introspection
+- graph diagnostics
 - recursive evaluation
-- adaptive mutation
-- structural restructuring
+- adaptive restructuring
+- semantic analysis
 
 ---
 
-# Features
+# ✨ Features
 
 - Recursive runtime loop
 - Graph-based cognitive memory
 - Ontology persistence layer
+- Reflection subsystem
+- Evolution engine
 - Symbolic rewrite engine
-- Reflection analyzer
-- Runtime introspection
-- Evolution subsystem
 - Semantic entity mapping
+- Runtime introspection
 - Adaptive graph mutation
-- Recursive memory architecture
 - Experimental symbolic execution
 - Modular cognitive architecture
-- Runtime state transformation
 - Recursive symbolic pipelines
 
 ---
 
-# Runtime Pipeline
+# 🔄 Runtime Pipeline
 
 URMS operates through a recursive symbolic pipeline:
 
-```text id="runtime-pipeline-v1"
+```text id="runtime-pipeline-colored"
 Observation
     ↓
 Interpretation
