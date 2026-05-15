@@ -3,14 +3,15 @@
 <p align="center">
   <h3 align="center">Universal Recursive Memory System</h3>
   <p align="center">
-    Experimental Symbolic Cognitive Runtime Written in Rust
+    Experimental Cognitive Runtime Architecture Written in Rust
   </p>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/language-rust-orange.svg">
-  <img src="https://img.shields.io/badge/status-experimental-blue.svg">
-  <img src="https://img.shields.io/badge/architecture-cognitive_runtime-purple.svg">
+  <img src="https://img.shields.io/badge/status-research-blue.svg">
+  <img src="https://img.shields.io/badge/runtime-symbolic-purple.svg">
+  <img src="https://img.shields.io/badge/architecture-graph_based-darkred.svg">
   <img src="https://img.shields.io/badge/license-MIT-green.svg">
 </p>
 
@@ -18,175 +19,138 @@
 
 # Overview
 
-URMS (Universal Recursive Memory System) is an experimental cognitive runtime architecture focused on symbolic reasoning, recursive memory mutation, ontology-driven execution and adaptive graph evolution.
+URMS (Universal Recursive Memory System) is an experimental symbolic runtime architecture focused on recursive memory, graph cognition and ontology-driven execution.
 
-The project explores whether cognition-like behavior can emerge from evolving symbolic structures instead of static procedural execution.
+The project investigates runtime systems where execution is not purely procedural, but instead emerges from evolving semantic structures operating on adaptive graph memory.
 
-Unlike traditional runtimes, URMS treats runtime state as a living semantic environment capable of:
+Unlike traditional runtimes that execute static instruction flows, URMS models runtime state as a dynamic symbolic environment capable of:
 
-- symbolic transformation
 - recursive introspection
-- ontology mutation
+- semantic mutation
 - graph evolution
-- adaptive execution flows
-- structural reflection
+- ontology transformation
+- reflective execution
+- adaptive structural reorganization
 
-URMS investigates runtime systems where memory, meaning and execution evolve together.
+URMS explores the possibility of cognition-like behavior emerging from recursive symbolic interactions rather than fixed procedural logic.
 
 ---
 
 # Vision
 
-Modern runtimes execute predefined instructions.
+Modern runtimes are designed around deterministic instruction execution.
 
-URMS explores architectures capable of:
+URMS explores an alternative architecture where:
 
-- adaptive symbolic execution
-- recursive semantic memory
-- graph-based cognition
-- ontology-centered interpretation
-- runtime self-analysis
-- structural evolution
-- semantic mutation
-- reflective execution
+- memory evolves dynamically
+- symbolic structures mutate recursively
+- execution adapts to semantic context
+- runtime state becomes self-interpretable
+- graphs act as cognitive memory structures
+- ontology layers drive semantic organization
 
-The long-term goal is to experiment with autonomous symbolic runtimes where semantic structures continuously reorganize and reinterpret themselves recursively.
+The long-term vision is to research autonomous symbolic runtimes capable of recursive adaptation, introspection and semantic self-restructuring.
 
 ---
 
 # Philosophy
 
-URMS is not designed as a traditional AI framework.
+URMS treats runtime memory as an active semantic system rather than passive storage.
 
-The project explores whether symbolic cognition can emerge from recursive semantic structures operating on adaptive graph memory.
+Memory is not viewed as static data.
 
-Instead of treating memory as static storage, URMS treats memory as an active evolving structure capable of:
+Instead, memory structures may:
 
-- transformation
-- reinterpretation
-- mutation
-- reflection
-- recursive reorganization
+- transform themselves
+- reinterpret symbolic meaning
+- evolve graph relationships
+- reorganize semantic hierarchies
+- recursively reference internal state
 
-The runtime itself becomes part of the cognitive process.
+In URMS, execution, memory and interpretation are tightly coupled components of a continuously evolving symbolic environment.
 
 ---
 
-# Core Principles
+# Architectural Principles
 
 ## Recursive Memory
 
-Memory is not passive storage.
+Memory structures are capable of recursive mutation and self-reference.
 
-Memory structures may:
-
-- evolve
-- mutate
-- reorganize
-- recursively reference themselves
-- participate in runtime decisions
+The runtime continuously evolves internal symbolic relationships rather than preserving immutable execution state.
 
 ---
 
-## Symbolic Cognition
+## Symbolic Runtime
 
-URMS represents runtime state symbolically rather than procedurally.
+URMS represents execution through symbolic entities and semantic graph structures instead of purely procedural control flow.
 
-Symbols become active runtime entities capable of:
-
-- semantic transformation
-- interpretation
-- symbolic mutation
-- relationship evolution
-- structural adaptation
+Symbols act as active runtime components capable of transformation and reinterpretation.
 
 ---
 
-## Graph-Based Runtime
+## Graph Cognition
 
-The runtime operates on mutable graph structures.
+Runtime cognition is modeled through mutable graph structures.
 
-Graphs represent:
+Graphs encode:
 
-- concepts
-- observations
+- symbolic entities
 - semantic relations
-- execution states
-- symbolic dependencies
-- runtime transitions
+- runtime dependencies
+- execution transitions
+- conceptual mappings
 
 ---
 
-## Ontology-Centered Design
+## Ontology-Driven Execution
 
 Ontology acts as the semantic infrastructure of the runtime.
 
-The ontology layer provides:
+The ontology layer enables:
 
-- semantic categorization
+- symbolic classification
+- semantic interpretation
 - entity mapping
-- symbolic meaning
-- structural interpretation
-- runtime classification
-- adaptive semantic organization
+- structural reasoning
+- runtime categorization
 
 ---
 
 ## Reflective Execution
 
-The runtime can inspect and analyze its own internal state recursively.
+The runtime is capable of recursively analyzing and interpreting its own internal structures.
 
-Reflection enables:
+Reflection systems enable:
 
-- introspection
-- runtime diagnostics
+- runtime introspection
+- graph diagnostics
 - recursive evaluation
-- structural analysis
 - adaptive mutation
-- self-referential execution
+- structural analysis
 
 ---
 
 # Features
 
-- Adaptive runtime loop
-- Recursive memory architecture
-- Graph-based cognitive runtime
-- Ontology persistence layer
+- Graph-based runtime memory
 - Symbolic rewrite engine
-- Reflection analyzer
-- Runtime introspection
-- Evolution subsystem
+- Recursive memory architecture
+- Ontology persistence layer
+- Reflection subsystem
+- Evolution engine
 - Semantic entity mapping
-- Recursive graph mutation
+- Runtime introspection
+- Adaptive graph mutation
 - Experimental symbolic execution
 - Modular cognitive architecture
-- Runtime state transformation
-- Adaptive symbolic pipelines
+- Recursive runtime pipelines
 
 ---
 
-# Runtime Goals
+# Runtime Pipeline
 
-URMS investigates runtime systems capable of:
-
-- adaptive symbolic execution
-- recursive semantic mutation
-- ontology-aware cognition
-- reflective graph evolution
-- semantic runtime adaptation
-- runtime introspection
-- graph memory mutation
-- symbolic runtime evolution
-- recursive execution analysis
-
----
-
-# Cognitive Pipeline
-
-URMS operates through a recursive symbolic pipeline:
-
-```text
+```text id="kh4h2e"
 Observation
     ↓
 Interpretation
