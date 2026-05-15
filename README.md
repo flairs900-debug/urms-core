@@ -1,14 +1,35 @@
 # URMS Core
 
-![language](https://img.shields.io/badge/language-rust-orange)
-![status](https://img.shields.io/badge/status-experimental-blue)
-![license](https://img.shields.io/badge/license-MIT-green)
+<p align="center">
+  <h1 align="center">Universal Recursive Memory System</h1>
+  <p align="center">
+    Experimental Cognitive Runtime Architecture written in Rust
+  </p>
+</p>
 
-Universal Recursive Memory System (URMS) is an experimental cognitive runtime written in Rust.
+<p align="center">
+  <img src="https://img.shields.io/badge/language-rust-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/status-experimental-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/runtime-cognitive-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/architecture-recursive-purple?style=for-the-badge">
+  <img src="https://img.shields.io/badge/license-MIT-yellow?style=for-the-badge">
+</p>
 
-URMS explores graph-based cognition, symbolic reasoning, adaptive runtime execution, ontology-driven interpretation and recursive memory architectures.
+---
 
-The system is designed as a modular cognitive core capable of evolving internal structures through observation, interpretation, reflection and runtime adaptation.
+# Overview
+
+URMS (Universal Recursive Memory System) is an experimental cognitive runtime focused on recursive symbolic memory, graph-based cognition, ontology-driven reasoning and adaptive runtime evolution.
+
+Unlike traditional runtimes that execute static predefined logic, URMS explores systems capable of restructuring internal symbolic representations dynamically during execution.
+
+The project investigates whether a runtime environment can become:
+
+- reflective
+- semantically aware
+- recursively adaptive
+- structurally self-modifying
+- cognitively persistent
 
 ---
 
@@ -16,198 +37,73 @@ The system is designed as a modular cognitive core capable of evolving internal 
 
 URMS is not intended to be a traditional application runtime.
 
-The project explores the possibility of building a self-organizing cognitive architecture where:
+The project explores the possibility of building self-organizing cognitive architectures where:
 
-- memory is represented as evolving graphs
+- memory is represented as evolving symbolic graphs
 - runtime behavior adapts dynamically
-- symbolic structures can rewrite themselves
+- symbolic structures rewrite themselves
 - ontology acts as semantic infrastructure
 - observation and interpretation form cognitive pipelines
 - evolution mechanisms modify internal state recursively
 
-The long-term goal is to experiment with autonomous symbolic systems capable of runtime-level adaptation and cognitive persistence.
+The long-term objective is to experiment with autonomous symbolic systems capable of runtime-level adaptation and recursive memory persistence.
 
 ---
 
-# Features
+# Core Principles
 
-- Adaptive runtime loop
-- Graph-based memory system
-- Ontology persistence layer
-- Symbolic rewrite engine
-- Observation engine
-- Interpretation engine
-- Reflection analyzer
-- Evolution subsystem
-- Runtime validation
-- Recursive memory structures
-- Semantic entity mapping
-- Modular subsystem architecture
+## Recursive Cognition
+Every runtime cycle can influence future runtime structure.
 
----
-
-# Architecture
-
-URMS Core is composed of multiple cognitive subsystems:
-
-## Runtime Engine
-
-Controls execution flow, scheduling and adaptive runtime behavior.
-
-Responsible for:
-- runtime coordination
-- subsystem orchestration
-- execution lifecycle
-- adaptive runtime state
-
----
+## Symbolic Processing
+The system operates on symbolic relationships rather than raw procedural execution alone.
 
 ## Graph Memory
+Knowledge is represented as evolving graph structures.
 
-The graph system acts as the central cognitive memory layer.
+## Reflective Runtime
+The runtime can inspect and analyze its own internal state.
 
-Responsibilities:
-- node storage
-- relationship mapping
-- symbolic graph traversal
-- graph mutation
-- recursive memory linking
+## Runtime Evolution
+Subsystems can mutate symbolic structures dynamically.
 
 ---
 
-## Ontology Store
+# High-Level Architecture
 
-Provides semantic organization for entities and symbolic structures.
-
-Responsibilities:
-- ontology persistence
-- semantic classification
-- symbolic categorization
-- runtime semantic mapping
-
----
-
-## Observation Engine
-
-Handles external or internal event observation.
-
-Responsibilities:
-- event capture
-- runtime observation
-- cognitive input processing
-- observation serialization
-
----
-
-## Interpretation Engine
-
-Transforms observations into symbolic meaning.
-
-Responsibilities:
-- symbolic interpretation
-- semantic transformation
-- ontology mapping
-- cognitive abstraction
-
----
-
-## Evolution Engine
-
-Handles runtime adaptation and structural mutation.
-
-Responsibilities:
-- graph evolution
-- symbolic mutation
-- adaptive restructuring
-- recursive transformation
-
----
-
-## Reflection Analyzer
-
-Performs internal runtime analysis.
-
-Responsibilities:
-- structural inspection
-- graph introspection
-- runtime reflection
-- subsystem diagnostics
-
----
-
-## Symbolic Rewrite Engine
-
-Allows symbolic transformations and runtime rewriting.
-
-Responsibilities:
-- symbolic mutation
-- rewrite rules
-- semantic replacement
-- adaptive transformations
-
----
-
-# Cognitive Pipeline
-
-URMS operates through a recursive cognitive pipeline:
-
-```text
-Observation
-    ↓
-Interpretation
-    ↓
-Ontology Mapping
-    ↓
-Graph Mutation
-    ↓
-Reflection
-    ↓
-Evolution
-    ↓
-Runtime Adaptation
-
-src/
-│
-├── core/
-│   │
-│   ├── graph/
-│   │   ├── graph.rs
-│   │   └── node.rs
-│   │
-│   ├── ontology/
-│   │   ├── store.rs
-│   │   └── entity.rs
-│   │
-│   ├── observation/
-│   │   ├── engine.rs
-│   │   └── event.rs
-│   │
-│   ├── interpretation/
-│   │   └── engine.rs
-│   │
-│   ├── evolution/
-│   │   ├── engine.rs
-│   │   └── history.rs
-│   │
-│   ├── reflection/
-│   │   └── analyzer.rs
-│   │
-│   ├── runtime/
-│   │   └── scheduler.rs
-│   │
-│   └── rewrite/
-│       └── engine.rs
-│
-├── main.rs
-└── Cargo.toml
-
-URMS Core starting...
-
-Observation received
-Interpretation completed
-Ontology mapped
-Graph mutated
-Reflection executed
-Evolution cycle completed
-
-URMS Core finished.
+```text id="3m2qvs"
+                    ┌────────────────────┐
+                    │ Observation Layer  │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Interpretation     │
+                    │ Engine             │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Ontology Store     │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Graph Memory       │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Reflection         │
+                    │ Analyzer           │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Evolution Engine   │
+                    └─────────┬──────────┘
+                              │
+                              ▼
+                    ┌────────────────────┐
+                    │ Runtime Adaptation │
+                    └────────────────────┘
