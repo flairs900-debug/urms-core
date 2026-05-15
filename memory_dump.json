@@ -7,6 +7,10 @@
     {
       "id": 2,
       "name": "MemoryNode"
+    },
+    {
+      "id": 3,
+      "name": "MetaAdaptiveNode"
     }
   ],
   "edges": []
