@@ -1,8 +1,8 @@
-use crate::core::memory::record::MemoryRecord;
+use crate::core::memory::trace::MemoryTrace;
 
 pub struct MemoryStore {
 
-    pub records: Vec<MemoryRecord>,
+    pub traces: Vec<MemoryTrace>,
 }
 
 impl MemoryStore {
@@ -10,77 +10,35 @@ impl MemoryStore {
     pub fn new() -> Self {
 
         Self {
-            records: Vec::new(),
+
+            traces: Vec::new(),
         }
     }
 
-    pub fn write(
+    pub fn store(
         &mut self,
-        event: String,
-        weight: f32,
-        tag: String,
+        trace: MemoryTrace,
     ) {
 
         println!(
-            "MEMORY WRITE => {} [{}]",
-            event,
-            tag
+            "STORE MEMORY => {}",
+            trace.content
         );
 
-        self.records.push(
-            MemoryRecord {
-                event,
-                weight,
-                tag,
-            }
-        );
+        self.traces.push(trace);
     }
 
-    pub fn read_all(&self) {
+    pub fn recall(&self) {
 
-        println!("MEMORY READ:");
+        println!("MEMORY RECALL:");
 
-        for item in &self.records {
+        for trace in &self.traces {
 
             println!(
-                "-> {} | weight={} | tag={}",
-                item.event,
-                item.weight,
-                item.tag
+                "[{}] {}",
+                trace.id,
+                trace.content
             );
-        }
-    }
-
-    pub fn replay(&self) {
-
-        println!("MEMORY REPLAY START");
-
-        for (index, item) in self.records.iter().enumerate() {
-
-            println!(
-                "[{}] {} [{}]",
-                index,
-                item.event,
-                item.tag
-            );
-        }
-
-        println!("MEMORY REPLAY END");
-    }
-
-    pub fn important(&self) {
-
-        println!("IMPORTANT MEMORIES");
-
-        for item in &self.records {
-
-            if item.weight > 0.7 {
-
-                println!(
-                    "IMPORTANT => {}",
-                    item.event
-                );
-            }
         }
     }
 }

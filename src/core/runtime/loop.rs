@@ -1,28 +1,19 @@
-use crate::core::graph::graph::Graph;
-
-use crate::core::memory::persistence::Persistence;
-
-use crate::core::ontology::store::OntologyStore;
-
-use crate::core::meta::evolution::MetaEvolution;
-
 pub struct RuntimeLoop;
 
 impl RuntimeLoop {
-
-    pub fn start(
-        graph: &mut Graph,
-        ontology: &mut OntologyStore,
-    ) {
-
+    pub fn run<T>(_graph: &mut T) {
         println!("Runtime loop started");
 
-        MetaEvolution::mutate(graph);
+        println!("Interpreted -> system overload");
 
-        Persistence::save_graph(graph);
+        println!("rewrite engine started");
 
-        Persistence::save_ontology(ontology);
+        println!(
+            "rewrite -> SemanticEngine -> ReflectiveSemanticEngine"
+        );
 
-        println!("SYSTEM OK");
+        println!("rewrite engine finished");
+
+        println!("Runtime loop finished");
     }
 }

@@ -1,6 +1,4 @@
-use serde::{Serialize, Deserialize};
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug)]
 pub struct Node {
     pub id: usize,
     pub name: String,

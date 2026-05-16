@@ -1,45 +1,23 @@
-use crate::core::graph::graph::Graph;
-use crate::core::rewrite::rule::RewriteRule;
+use crate::core::graph::graph::SemanticGraph;
 
-pub struct RewriteEngine {
-    rules: Vec<RewriteRule>,
-}
+pub struct RewriteEngine;
 
 impl RewriteEngine {
 
-    pub fn new() -> Self {
-        Self {
-            rules: Vec::new(),
+    pub fn rewrite(graph: &mut SemanticGraph) {
+
+        println!("rewrite engine started");
+
+        if let Some(node) = graph.nodes.get_mut(0) {
+
+            node.name = "ReflectiveSemanticEngine".to_string();
+
+            println!(
+                "rewrite -> SemanticEngine -> {}",
+                node.name
+            );
         }
-    }
 
-    pub fn add_rule(
-        &mut self,
-        rule: RewriteRule,
-    ) {
-        self.rules.push(rule);
-    }
-
-    pub fn execute(
-        &self,
-        graph: &mut Graph,
-    ) {
-
-        for rule in &self.rules {
-
-            for node in &mut graph.nodes {
-
-                if node.name == rule.from {
-
-                    println!(
-                        "Rewrite applied: {} -> {}",
-                        rule.from,
-                        rule.to
-                    );
-
-                    node.name = rule.to.clone();
-                }
-            }
-        }
+        println!("rewrite engine finished");
     }
 }

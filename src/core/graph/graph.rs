@@ -1,19 +1,24 @@
-use serde::{Serialize, Deserialize};
+#[derive(Clone, Debug)]
+pub struct Node {
+    pub id: usize,
+    pub name: String,
+    pub activation: f32,
+    pub weight: f32,
+}
 
-use std::fs::File;
-use std::io::Write;
+#[derive(Clone, Debug)]
+pub struct Edge {
+    pub from: usize,
+    pub to: usize,
+}
 
-use super::node::Node;
-use super::edge::Edge;
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct Graph {
+#[derive(Debug)]
+pub struct SemanticGraph {
     pub nodes: Vec<Node>,
     pub edges: Vec<Edge>,
 }
 
-impl Graph {
-
+impl SemanticGraph {
     pub fn new() -> Self {
         Self {
             nodes: Vec::new(),
@@ -21,25 +26,24 @@ impl Graph {
         }
     }
 
-    pub fn add_node(&mut self, node: Node) {
-        self.nodes.push(node);
+    pub fn add_node(&mut self, name: &str) -> usize {
+        let id = self.nodes.len() + 1;
+
+        self.nodes.push(Node {
+            id,
+            name: name.to_string(),
+            activation: 0.0,
+            weight: 1.0,
+        });
+
+        println!("created node -> {}", id);
+
+        id
     }
 
-    pub fn add_edge(&mut self, edge: Edge) {
-        self.edges.push(edge);
-    }
+    pub fn add_edge(&mut self, from: usize, to: usize) {
+        self.edges.push(Edge { from, to });
 
-    pub fn save(&self, path: &str) {
-
-        let json =
-            serde_json::to_string_pretty(self)
-                .expect("Failed to serialize graph");
-
-        let mut file =
-            File::create(path)
-                .expect("Failed to create graph file");
-
-        file.write_all(json.as_bytes())
-            .expect("Failed to write graph");
+        println!("created edge -> {} -> {}", from, to);
     }
 }

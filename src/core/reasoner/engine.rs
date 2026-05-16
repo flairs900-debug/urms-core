@@ -1,24 +1,23 @@
-use crate::core::ontology::store::OntologyStore;
+use crate::core::ontology::entity::OntologyEntity;
 
 pub struct ReasonerEngine;
 
 impl ReasonerEngine {
-    pub fn infer(ontology: &OntologyStore) {
-        println!("Reasoning started");
 
-        for entity in &ontology.entities {
-            match entity.kind.as_str() {
-                "concept" => {
-                    println!("Concept detected: {}", entity.name);
-                }
+    pub fn analyze(entity: &OntologyEntity) {
 
-                "memory" => {
-                    println!("Memory node: {}", entity.name);
-                }
+        match entity.category.as_str() {
 
-                _ => {
-                    println!("Unknown entity: {}", entity.name);
-                }
+            "concept" => {
+                println!("Concept detected: {}", entity.label);
+            }
+
+            "memory" => {
+                println!("Memory node: {}", entity.label);
+            }
+
+            _ => {
+                println!("Unknown entity: {}", entity.label);
             }
         }
     }

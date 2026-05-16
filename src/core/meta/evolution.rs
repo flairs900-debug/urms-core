@@ -1,23 +1,20 @@
-use crate::core::graph::graph::Graph;
-use crate::core::graph::node::Node;
+use crate::core::graph::graph::SemanticGraph;
 
 pub struct MetaEvolution;
 
 impl MetaEvolution {
 
-    pub fn mutate(graph: &mut Graph) {
+    pub fn evolve(graph: &mut SemanticGraph) {
 
         println!("Meta evolution started");
 
-        let next_id: usize = graph.nodes.len() + 1;
+        let id = graph.add_node("meta");
 
-        let node = Node {
-            id: next_id,
-            name: "MetaAdaptiveNode".to_string(),
-        };
+        if id > 1 {
 
-        graph.nodes.push(node);
+            graph.add_edge(id - 1, id);
+        }
 
-        println!("Meta mutation applied");
+        println!("Meta evolution finished");
     }
 }

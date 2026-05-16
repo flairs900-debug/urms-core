@@ -1,40 +1,38 @@
-use serde::{Serialize, Deserialize};
+use crate::core::ontology::entity::OntologyEntity;
 
-#[derive(Clone, Debug, Serialize, Deserialize)]
-pub struct OntologyEntity {
-    pub name: String,
-    pub kind: String,
-}
-
-#[derive(Clone, Debug, Serialize, Deserialize)]
 pub struct OntologyStore {
     pub entities: Vec<OntologyEntity>,
 }
 
 impl OntologyStore {
-
     pub fn new() -> Self {
         Self {
             entities: Vec::new(),
         }
     }
 
-    pub fn add_entity(&mut self, name: &str, kind: &str) {
-        self.entities.push(
-            OntologyEntity {
-                name: name.to_string(),
-                kind: kind.to_string(),
-            }
+    pub fn insert(&mut self, entity: OntologyEntity) {
+        println!(
+            "ontology insert -> {}",
+            entity.label
         );
+
+        self.entities.push(entity);
     }
 
-    pub fn save(&self, path: &str) {
+    pub fn print(&self) {
+        println!(
+            "ontology entities -> {}",
+            self.entities.len()
+        );
 
-        let json =
-            serde_json::to_string_pretty(self)
-                .expect("Failed serialize ontology");
-
-        std::fs::write(path, json)
-            .expect("Failed save ontology");
+        for entity in &self.entities {
+            println!(
+                "entity [{}] {} ({})",
+                entity.id,
+                entity.label,
+                entity.category
+            );
+        }
     }
 }

@@ -1,4 +1,52 @@
-URMS
-SemanticRuntime
-AdaptiveExecutionEngine
-CognitiveLayer
+SemanticGraph {
+    nodes: [
+        Node {
+            id: 1,
+            name: "ReflectiveSemanticEngine",
+            activation: 0.0,
+            weight: 1.0,
+        },
+        Node {
+            id: 2,
+            name: "SemanticEngine",
+            activation: 0.0,
+            weight: 1.0,
+        },
+        Node {
+            id: 3,
+            name: "meta",
+            activation: 0.0,
+            weight: 1.0,
+        },
+        Node {
+            id: 4,
+            name: "self",
+            activation: 0.0,
+            weight: 1.0,
+        },
+        Node {
+            id: 5,
+            name: "adaptive",
+            activation: 0.0,
+            weight: 1.0,
+        },
+    ],
+    edges: [
+        Edge {
+            from: 1,
+            to: 2,
+        },
+        Edge {
+            from: 2,
+            to: 3,
+        },
+        Edge {
+            from: 3,
+            to: 4,
+        },
+        Edge {
+            from: 4,
+            to: 5,
+        },
+    ],
+}
