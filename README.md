@@ -1,10 +1,10 @@
-# URMS Core
+# URMS CORE
 
-Adaptive cognitive runtime system written in Rust.
+Universal Recursive Meta System
 
-## Features
-- Graph engine
-- Rewrite engine
-- Query engine
-- Ontology store
-- Runtime execution core
+Autonomous recursive cognitive runtime written in Rust.
+
+## Run
+
+```bash
+cargo run
