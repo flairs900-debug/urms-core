@@ -1,8 +1,11 @@
 # URMS CORE
+### Universal Recursive Meta System
+Autonomous Recursive Cognitive Runtime written in Rust
 
-Universal Recursive Meta System
-
-Autonomous recursive cognitive runtime written in Rust.
+![Rust](https://img.shields.io/badge/Rust-1.80-orange)
+![Status](https://img.shields.io/badge/status-experimental-blue)
+![Runtime](https://img.shields.io/badge/runtime-autonomous-green)
+![License](https://img.shields.io/badge/license-MIT-purple)
 
 ---
 
