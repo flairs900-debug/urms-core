@@ -1,1 +1,6 @@
 /target
+Cargo.lock
+*.pdb
+*.exe
+*.log
+.DS_Store
